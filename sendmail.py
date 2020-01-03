@@ -47,22 +47,22 @@ def sendmail(mail_to,mail_host,mail_host_port,mail_user,mail_pass,subject,mailms
     smtpObj = smtplib.SMTP()
     if mail_host_port == "":
       smtpObj.connect(mail_host)
-      print "connect success"
+      print ("connect success")
       if mail_user != "" and mail_pass != "":
         smtpObj.login(mail_user,mail_pass)
-        print "login success"
+        print ("login success")
     else:
       smtpObj.connect(mail_host,int(mail_host_port))
-      print "connect success"
+      print ("connect success")
       if mail_user != "" and mail_pass != "":
         smtpObj.login(mail_user,mail_pass)
-        print "login success"
+        print ("login success")
     smtpObj.sendmail(mail_user,mail_to, msgRoot.as_string())
     smtpObj.close()
-    print "mail send success"
+    print ("mail send success")
   except smtplib.SMTPException as e:
-    print e
-    print "Error: can't send mail"
+    print (e)
+    print ("Error: can't send mail")
 
 
 __EMAIL_TEMPLATE = u'\
